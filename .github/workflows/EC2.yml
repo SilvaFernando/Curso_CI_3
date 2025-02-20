@@ -27,9 +27,9 @@ jobs:
             REMOTE_USER: ${{ secrets.REMOTE_USER }}
             TARGET: /home/${{ secrets.REMOTE_USER }}
 
-        #- name: Copiar binário manualmente
-        #  run: |
-        #    scp -i ~/.ssh/id_rsa ./deploy/main ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/${{ secrets.REMOTE_USER }}/main
+        - name: Copiar binário manualmente
+          run: |
+            scp -i ~/.ssh/id_rsa main ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/${{ secrets.REMOTE_USER }}/main
 
 
         - name: executing remote ssh commands using password
