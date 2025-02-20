@@ -29,7 +29,7 @@ jobs:
 
         - name: Copiar binário manualmente
           run: |
-            scp -i ~/.ssh/id_rsa ./main ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/${{ secrets.REMOTE_USER }}/main
+            scp -i ~/.ssh/id_rsa main ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/${{ secrets.REMOTE_USER }}/main
 
 
         - name: executing remote ssh commands using password
