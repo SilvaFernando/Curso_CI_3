@@ -12,8 +12,10 @@ jobs:
           with:
             # Artifact name
             name: programa
-            path: ./deploy
-        
+
+        - name: Listando arquivos após o download do artefato
+          run: ls -lah
+          
         - uses: actions/checkout@v3
 
         - name: Deploy to Staging server
@@ -23,7 +25,7 @@ jobs:
             REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
             REMOTE_USER: ${{ secrets.REMOTE_USER }}
             TARGET: /home/${{ secrets.REMOTE_USER }}
-            SOURCE: ./deploy/main
+
 
         - name: executing remote ssh commands using password
           uses: appleboy/ssh-action@v1.2.1
