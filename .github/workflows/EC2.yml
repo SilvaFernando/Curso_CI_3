@@ -11,7 +11,8 @@ jobs:
           uses: actions/download-artifact@v4.1.8
           with:
             # Artifact name
-            name: programa
+            name: programa1
+            path: main
 
         - name: Listando arquivos após o download do artefato
           run: ls -lah
