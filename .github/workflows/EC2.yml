@@ -12,7 +12,7 @@ jobs:
           with:
             # Artifact name
             name: programa
-            path: /home/${{ secrets.REMOTE_USER }}
+            path: main
         
         - uses: actions/checkout@v3
 
@@ -32,6 +32,12 @@ jobs:
             key: ${{ secrets.SSH_PRIVATE_KEY }}
             port: 22
             script: |
+              cd /home/${{ secrets.REMOTE_USER }}
+              if [ ! -f "./main" ]; then
+                echo "Erro: Arquivo main não encontrado na máquina remota."
+                exit 1
+              fi
+            
               export HOST=${{ secrets.DBHOST }}
               export USER=${{ secrets.DBUSER }} 
               export PASSWORD=${{ secrets.DBPASSWORD }}
