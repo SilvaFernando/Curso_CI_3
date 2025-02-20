@@ -12,10 +12,12 @@ jobs:
           with:
             # Artifact name
             name: programa
+            path: main
+            
 
 
         - name: Listando arquivos após o download do artefato
-          run: ls -lah
+          run: pwd & ls -lah
           
         - uses: actions/checkout@v3
 
