@@ -12,6 +12,7 @@ jobs:
           with:
             # Artifact name
             name: programa
+            path: /home/${{ secrets.REMOTE_USER }}
         
         - uses: actions/checkout@v3
 
